@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+}
+
+.flag {
+  /* Removing height & width as px and using as vh will covers whole screen. */
+  width: 300px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.black {
+  background: black;
+  flex: 1;
+}
+
+.red {
+  background: red;
+  flex: 1;
+  position: relative;
+}
+
+.green {
+  background: green;
+  flex: 1;
+}
+
+.emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
