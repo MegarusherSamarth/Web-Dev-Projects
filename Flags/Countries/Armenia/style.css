@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #888;
+  overflow: hidden;
+}
+
+.parent {
+  height: 100vh;
+  /* width: 100vh; */
+  display: flex;
+  flex-direction: column;
+}
+
+.red,
+.blue,
+.orange {
+  height: 33.33%;
+  width: 100%;
+}
+
+.red {
+  background: red;
+}
+
+.blue {
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orange {
+  background: orange;
+}
