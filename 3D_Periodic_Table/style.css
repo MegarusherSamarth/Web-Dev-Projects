@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif, "Arial";
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  padding: 0 20px;
+}
+
+.periodic-table {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+  grid-template-rows: minmax(60px, auto);
+  grid-gap: 5.2px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.element {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  transform-style: preserve-3d;
+  aspect-ratio: 1;
+  perspective: 1000px;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.element:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(5deg) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+.element .number {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.element .symbol {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.element .name {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.element .mass {
+  font-size: 0.7rem;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+/* Elements */
+.alkali-metal {
+  background: rgba(255, 100, 100, 0.3);
+}
+.alkaline-earth {
+  background: rgba(255, 180, 100, 0.3);
+}
+.transition-metal {
+  background: rgba(255, 255, 100, 0.3);
+}
+.post-transition {
+  background: rgba(100, 255, 100, 0.3);
+}
+.metalloid {
+  background: rgba(100, 255, 180, 0.3);
+}
+.nonmetal {
+  background: rgba(100, 180, 255, 0.3);
+}
+.halogen {
+  background: rgba(180, 100, 255, 0.3);
+}
+.noble-gas {
+  background: rgba(255, 100, 255, 0.3);
+}
+.lanthanide {
+  background: rgba(255, 100, 180, 0.3);
+}
+.actinide {
+  background: rgba(180, 255, 100, 0.3);
+}
+
+/* Hover on Elements */
+.element:hover.alkali-metal {
+  background: rgba(255, 100, 100, 0.7);
+}
+.element:hover.alkaline-earth {
+  background: rgba(255, 180, 100, 0.7);
+}
+.element:hover.transition-metal {
+  background: rgba(255, 255, 100, 0.7);
+}
+.element:hover.post-transition {
+  background: rgba(100, 255, 100, 0.7);
+}
+.element:hover.metalloid {
+  background: rgba(100, 255, 180, 0.7);
+}
+.element:hover.nonmetal {
+  background: rgba(100, 180, 255, 0.7);
+}
+.element:hover.halogen {
+  background: rgba(180, 100, 255, 0.7);
+}
+.element:hover.noble-gas {
+  background: rgba(255, 100, 255, 0.7);
+}
+.element:hover.lanthanide {
+  background: rgba(255, 100, 180, 0.7);
+}
+.element:hover.actinide {
+  background: rgba(180, 255, 100, 0.7);
+}
+
+/* Empty Cells */
+.empty {
+  visibility: hidden;
+}
+
+/* Lanthanide and Actinide Series */
+.series {
+  grid-column: span 18;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-gap: 5px;
+  margin-top: 20px;
+}
+
+.series-title {
+  grid-column: span 15;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  /* padding: 10px; */
+  border-radius: 5px;
+  font-size: 0.9rem;
+  min-width: 150px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.element:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.tooltip h3 {
+  margin-bottom: 5px;
+  color: cyan;
+}
+
+.tooltip p {
+  margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+  .periodic-table {
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .element {
+    height: 60px;
+    padding: 5px;
+  }
+
+  .element .symbol {
+    font-size: 1rem;
+  }
+
+  .element .name,
+  .element .mass {
+    display: none;
+  }
+}
