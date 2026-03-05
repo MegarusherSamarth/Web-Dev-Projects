@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.parent {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.white,
+.green,
+.red {
+  height: 33.33%;
+  width: 100%;
+}
+
+.white {
+  background: white;
+}
+
+.green {
+  /* background: cadetblue / teal / cyan; */
+  background: #00966e;
+}
+
+.red {
+  background: red;
+}
